@@ -1,0 +1,57 @@
+# Dependencies - Node
+node_modules/
+frontend/node_modules/
+.pnpm-store/
+.npm/
+.yarn/
+
+# Frontend build outputs
+frontend/build/
+build/
+dist/
+
+# Python virtual environments
+venv/
+.venv/
+backend/venv/
+
+# Python bytecode / cache
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+.eggs/
+*.egg-info/
+.pytype/
+.mypy_cache/
+.pytest_cache/
+
+# Environment files
+.env
+.env.*.local
+.env.local
+
+# Databases, data and uploads
+backend/instance/
+backend/uploads/
+uploads/
+*.db
+*.sqlite3
+
+# MongoDB local data
+mongodb_data/
+mongodb.log
+
+# Logs
+*.log
+logs/
+
+# IDE / Editor
+.vscode/
+.idea/
+*.iml
+
+# OS files
+.DS_Store
+Thumbs.db

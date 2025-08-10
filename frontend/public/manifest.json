@@ -1,0 +1,18 @@
+{
+  "short_name": "TravelTracker",
+  "name": "Travel Tracker PWA",
+  "description": "Consignez vos voyages et visualisez vos villes visitées sur une carte interactive. Ajoutez photos, notes et découvrez le monde !",
+  "icons": [
+    { "src": "logo192.png", "sizes": "192x192", "type": "image/png", "purpose": "any maskable" },
+    { "src": "logo512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
+  ],
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#3b82f6",
+  "lang": "fr",
+  "orientation": "portrait-primary",
+  "scope": "/",
+  "categories": ["travel", "lifestyle", "utilities"],
+  "screenshots": []
+}

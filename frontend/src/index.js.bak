@@ -1,0 +1,46 @@
+// src/index.js
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import { BrowserRouter, Routes, Route, Navigate, Outlet, useLocation } from 'react-router-dom';
+import './index.css';
+import App from './App';
+import { AuthProvider, useAuth } from './AuthContext';
+import LoginPage from './pages/LoginPage';
+import RegisterPage from './pages/RegisterPage';
+import DashboardPage from './pages/DashboardPage';
+
+function ProtectedRoute() {
+  const { isAuthenticated, isLoadingAuth } = useAuth();
+  const loc = useLocation();
+
+  if (isLoadingAuth) return null; // ou un petit spinner
+
+  return isAuthenticated ? (
+    <Outlet />
+  ) : (
+    <Navigate to="/login" replace state={{ from: loc }} />
+  );
+}
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+  <React.StrictMode>
+    <BrowserRouter>
+      <AuthProvider>
+        <Routes>
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/register" element={<RegisterPage />} />
+
+          {/* Toutes ces routes nécessitent une auth */}
+          <Route element={<ProtectedRoute />}>
+            <Route path="/" element={<App />} />
+            <Route path="/dashboard" element={<DashboardPage />} />
+          </Route>
+
+          {/* fallback */}
+          <Route path="*" element={<Navigate to="/" replace />} />
+        </Routes>
+      </AuthProvider>
+    </BrowserRouter>
+  </React.StrictMode>
+);
